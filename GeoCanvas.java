@@ -154,7 +154,7 @@ public class GeoCanvas extends BaseCanvas {
        rpos=new RadarPos(data.prm.stid);
 
        /* set the view point */
-       MapPoint p=GeoMap.geo(0,rpos,180,45,0,300,
+       MapPoint p=GeoMap.geo(0,rpos,data.prm.frang,data.prm.rsep,0,300,
 			     mbeam,mbeam/2,data.prm.nrang/2);
        trf.setPos(p.lat,p.lon);
 
