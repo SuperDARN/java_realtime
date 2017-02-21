@@ -73,8 +73,8 @@ class RadarPos {
          break;
        case 7: /* kodiak */
 
-         this.gdlat=+60.6;
-         this.gdlon=-152.2;
+         this.gdlat=+57.61;
+         this.gdlon=-152.28;
          this.boresite=30.0;
          this.bmwidth=3.24;
          this.rxris=100.0;
