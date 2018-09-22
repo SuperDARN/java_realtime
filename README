@@ -14,9 +14,3 @@ where:
 <RAD> is the descriptive name you want to use for the radar in the display
 <port> is the tcp port number for the real time feed
 <host> is the internet host (ip address or hostname) providing the feed
-
-For example:
-To connect to the public McMurdo Channel A feed provided by our server at UAF: 
-java FitACFDisplayApp -n MCM.A -p 6024 superdarn.gi.alaska.edu
-
-
