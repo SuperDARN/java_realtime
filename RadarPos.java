@@ -94,7 +94,7 @@ class RadarPos {
          break;
        case 10: /* Hankasalmi (han) */
          this.gdlat=+62.32;
-         this.gdlon=+26.61;
+         this.gdlon=26.61;
          this.boresite=-12.0;
          this.bmwidth=3.24;
          this.rxris=100.0;
@@ -148,26 +148,40 @@ class RadarPos {
          this.bmwidth=-3.24;
          this.rxris=100.0;
          break;
+      case 19: /* Zhongshan Station (zho) */
+         this.gdlat=-69.379;
+         this.gdlon=76.378;
+         this.boresite=72.5;
+         this.bmwidth=3.24;
+         this.rxris=0.0;
+         break;
       case 20: /* McMurdo (mcm) */
          this.gdlat=-77.88;
          this.gdlon=166.73;
-         this.boresite=+263.4;
-         this.bmwidth=+3.24;
+         this.boresite=263.4;
+         this.bmwidth=3.24;
          this.rxris=0.0;
          break;
       case 21: /* Falkland Islands (fir) */
          this.gdlat=-51.831;
          this.gdlon=-58.979;
-         this.boresite=+178.3;
+         this.boresite=178.3;
          this.bmwidth=-3.24;
          this.rxris=0.0;
          break;
       case 22: /* South Pole (sps) */
          this.gdlat=-89.995;
-         this.gdlon=+118.291;
-         this.boresite=+75.7;
-         this.bmwidth=+3.24;
+         this.gdlon=118.291;
+         this.boresite=75.7;
+         this.bmwidth=3.24;
          this.rxris=0.0;
+         break;
+      case 24: /* Buckland Park (bpk) */
+         this.gdlat=-34.62;
+         this.gdlon=138.46;
+         this.boresite=146.5;
+         this.bmwidth=3.24;
+         this.rxris=100.0;
          break;
       case 32: /* Wallops Island (wal) */
          this.gdlat=+37.93;
