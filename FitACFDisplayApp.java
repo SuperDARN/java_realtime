@@ -155,10 +155,10 @@ public static void main(String args[]) {
 
     if (hosts==null) hosts=new String("209.128.50.18");	
     if (ports==null) ports=new String("1024");
-    if (names==null) names=new String("Goose Bay");
+    if (names==null) names=new String("Unknown");
     if (streams==null) streams=new String("1");
     if (channels==null) channels=new String("a");
-    if (beams==null) beams=new String("8");
+    if (beams==null) beams=new String("7");
     if (nrangs==null) nrangs=new String("75");
     if (mbeams==null) mbeams=new String("16");
 
