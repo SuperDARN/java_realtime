@@ -111,7 +111,7 @@ public class StatusWindow extends CloseFrame implements Runnable {
 
     this.layout(new Label("Beam:"),0,4,1,1);
     this.layout(new Label("Channel:"),0,5,1,1);
-    this.layout(new Label("Integration Time:"),0,6,1,1);
+    this.layout(new Label("Integration Time: (s)"),0,6,1,1);
    
     this.layout(new Label("Noise:"),0,7,1,1);
     this.layout(new Label("Frequency:"),0,8,1,1);
@@ -171,7 +171,7 @@ public class StatusWindow extends CloseFrame implements Runnable {
     frang.setText(Integer.toString(data.prm.frang));
     rsep.setText(Integer.toString(data.prm.rsep));
     nrang.setText(Integer.toString(data.prm.nrang));
-    intt.setText(Integer.toString(data.prm.intt.sc));
+    intt.setText(Double.toString(data.prm.intt.sc+data.prm.intt.us/1e6));
 
     
     time.setText(TimeUTC.getString(data.prm.time.yr,data.prm.time.mo,
