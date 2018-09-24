@@ -22,6 +22,7 @@ public class TimeTool extends CloseFrame implements
   private Button pbtn;
   private Button vbtn;
   private Button wbtn;
+  private Button ebtn;
  
   private TextField rfld;
 
@@ -91,10 +92,12 @@ public class TimeTool extends CloseFrame implements
     pbtn=new Button("Lambda Power");
     vbtn=new Button("Velocity");
     wbtn=new Button("Spectral Width");
+    ebtn=new Button("Elevation Angle");
   
     pbtn.addActionListener(this);
     vbtn.addActionListener(this);
     wbtn.addActionListener(this);
+    ebtn.addActionListener(this);
 
     rfld=new TextField(12);
     rfld.addActionListener(new RngText());   
@@ -144,6 +147,7 @@ public class TimeTool extends CloseFrame implements
     a.add(vbtn);
     a.add(rfld);
     a.add(wbtn);
+    a.add(ebtn);
    
     Panel b=new Panel();
     b.setLayout(new GridLayout(4,1,0,0));
@@ -202,10 +206,13 @@ public class TimeTool extends CloseFrame implements
       time.setPrm(0);
       color.setPrm(0);
       rfld.setText(""+time.getRange());
-
     } else if (arg.equals("Spectral Width")) {
       time.setPrm(2);
       color.setPrm(2);
+      rfld.setText(""+time.getRange());
+    } else if (arg.equals("Elevation Angle")) {
+      time.setPrm(3);
+      color.setPrm(3);
       rfld.setText(""+time.getRange());
     }
   }

@@ -17,6 +17,7 @@ public class CSDData {
   double pmax;
   double vmax;
   double wmax;
+  double emax;
   short stid;
   int stored;
   int num=0;
@@ -38,7 +39,7 @@ public class CSDData {
     short atten[]=new short[32];
     short nave[]=new short[32];
     short nrang[]=new short[32];
-    byte map[][][]=new byte[32][300][4];
+    byte map[][][]=new byte[32][300][5];
 }
 
 

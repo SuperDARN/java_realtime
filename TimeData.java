@@ -43,7 +43,7 @@ public class TimeData {
    int index;
    Time tme=new Time();
    if (active==false) {
-     dval=new double[MAXFRAME][RadarData.MAX_RANGE][3];
+     dval=new double[MAXFRAME][RadarData.MAX_RANGE][4];
      dflg=new int[MAXFRAME][RadarData.MAX_RANGE];
      tfreq=new int [MAXFRAME];
      noise=new float [MAXFRAME];
@@ -81,6 +81,7 @@ public class TimeData {
 	dval[end][r][0]=data.fit.rng[r].v;
 	dval[end][r][1]=data.fit.rng[r].p_l;
 	dval[end][r][2]=data.fit.rng[r].w_l;
+	dval[end][r][3]=data.fit.elv[r].normal;
 	if (data.fit.rng[r].gsct==0) dflg[end][r]=1;
         else dflg[end][r]=2;
       } else dflg[end][r]=0;
@@ -97,7 +98,7 @@ public class TimeData {
     int index=0;
     int num=0;
     if (active==false) {
-      dval=new double[MAXFRAME][RadarData.MAX_RANGE][3];
+      dval=new double[MAXFRAME][RadarData.MAX_RANGE][4];
       dflg=new int[MAXFRAME][RadarData.MAX_RANGE];
       tfreq=new int [MAXFRAME];
       noise=new float [MAXFRAME];
@@ -128,6 +129,7 @@ public class TimeData {
             dval[end][r][1]=(csd.map[num][r][2]+128.0)*csd.pmax/256.0;
             dval[end][r][0]=csd.map[num][r][1]*csd.vmax/128.0;
             dval[end][r][2]=(csd.map[num][r][3]+128.0)*csd.wmax/256.0;
+            dval[end][r][3]=(csd.map[num][r][4]+128.0)*csd.emax/256.0;
             if (csd.map[num][r][0]==1) dflg[end][r]=1;
             else dflg[end][r]=2;
           }   else dflg[end][r]=0;

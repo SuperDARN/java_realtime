@@ -21,6 +21,7 @@ public class TimeCanvas extends BaseCanvas implements AdjustmentListener,
   Image imgPwr=null;
   Image imgVel=null;
   Image imgWdt=null;
+  Image imgElv=null;
   Image imgNse=null;
   Image imgFrq=null;
 
@@ -40,6 +41,7 @@ public class TimeCanvas extends BaseCanvas implements AdjustmentListener,
   private double prng=30.0;
   private double vrng=1000.0;
   private double wrng=500.0;
+  private double erng=50.0;
 
   private int offset=0;
   private int flength=24*60*60; /* frame length in seconds */
@@ -93,6 +95,7 @@ public class TimeCanvas extends BaseCanvas implements AdjustmentListener,
     imgPwr=createImage(time.MAXFRAME,FRAMEHGT);
     imgVel=createImage(time.MAXFRAME,FRAMEHGT);
     imgWdt=createImage(time.MAXFRAME,FRAMEHGT);
+    imgElv=createImage(time.MAXFRAME,FRAMEHGT);
     imgFrq=createImage(time.MAXFRAME,1);
     imgNse=createImage(time.MAXFRAME,1);
   }
@@ -213,6 +216,7 @@ private void drawGrid(Graphics g) {
     if ((prm==0) && (imgVel !=null)) bg.drawImage(imgVel,bx,by,wd,ht,null);
     if ((prm==1) && (imgPwr !=null)) bg.drawImage(imgPwr,bx,by,wd,ht,null);
     if ((prm==2) && (imgWdt !=null)) bg.drawImage(imgWdt,bx,by,wd,ht,null);
+    if ((prm==3) && (imgElv !=null)) bg.drawImage(imgElv,bx,by,wd,ht,null);
     if (imgFrq !=null) bg.drawImage(imgFrq,bx,2,wd,10,null);
     if (imgNse !=null) bg.drawImage(imgNse,bx,2+fhgt,wd,10,null);
 
@@ -297,6 +301,7 @@ private void drawGrid(Graphics g) {
     Graphics pg=imgPwr.getGraphics();
     Graphics vg=imgVel.getGraphics();
     Graphics wg=imgWdt.getGraphics();
+    Graphics eg=imgElv.getGraphics();
     int ya,yb,y;
    
     int tval=(int) this.time.time[i] % (24*3600);
@@ -330,6 +335,12 @@ private void drawGrid(Graphics g) {
         else plot= (byte) ((255*this.time.dval[i][r][2]/wrng)-128);
         wg.setColor(ColorKey.color(1,plot,bxcar));
         for (y=yb;y<=ya;y++) wg.drawLine(xa,y,xb,y);
+
+        if (this.time.dval[i][r][3]>erng) plot=127;
+        else if (this.time.dval[i][r][3]<0) plot=-128;
+        else plot= (byte) ((255*this.time.dval[i][r][3]/erng)-128);
+        eg.setColor(ColorKey.color(1,plot,bxcar));
+        for (y=yb;y<=ya;y++) eg.drawLine(xa,y,xb,y);
       } else {
 	/* draw white space on beam grid */
         ya=this.time.frang[i]+r*this.time.rsep[i];
@@ -343,9 +354,12 @@ private void drawGrid(Graphics g) {
         for (y=yb;y<=ya;y++) pg.drawLine(xa,y,xb,y);
         wg.setColor(Color.white);
         for (y=yb;y<=ya;y++) wg.drawLine(xa,y,xb,y);
+        eg.setColor(Color.white);
+        for (y=yb;y<=ya;y++) eg.drawLine(xa,y,xb,y);
 	
       }
     }
+    eg.dispose();
     wg.dispose();
     vg.dispose();
     pg.dispose();
@@ -356,6 +370,7 @@ private void drawGrid(Graphics g) {
     Graphics pg=imgPwr.getGraphics();
     Graphics vg=imgVel.getGraphics();
     Graphics wg=imgWdt.getGraphics();
+    Graphics eg=imgElv.getGraphics();
     Graphics ng=imgNse.getGraphics();
     Graphics fg=imgFrq.getGraphics();
 
@@ -363,11 +378,13 @@ private void drawGrid(Graphics g) {
     pg.fillRect(0,0,time.MAXFRAME,FRAMEHGT);
     vg.setColor(backcolor);
     vg.fillRect(0,0,time.MAXFRAME,FRAMEHGT);
-    wg.setColor(backcolor); 
+    wg.setColor(backcolor);
     wg.fillRect(0,0,time.MAXFRAME,FRAMEHGT);
-    ng.setColor(backcolor); 
+    eg.setColor(backcolor);
+    eg.fillRect(0,0,time.MAXFRAME,FRAMEHGT);
+    ng.setColor(backcolor);
     ng.fillRect(0,0,time.MAXFRAME,1);
-    fg.setColor(backcolor); 
+    fg.setColor(backcolor);
     fg.fillRect(0,0,time.MAXFRAME,1);
   }
 
@@ -420,7 +437,8 @@ private void drawGrid(Graphics g) {
   public double getRange() {
     if (prm==0) return vrng;
     if (prm==1) return prng;
-    return wrng;
+    if (prm==2) return wrng;
+    return erng;
   }
 
   public void setGflg(boolean state) {
@@ -460,11 +478,19 @@ private void drawGrid(Graphics g) {
       remap();
       replot();
       repaint();
-    } else {
+    } else if (prm==2) {
       if (rng<1.0) rng=1.0;
       if (rng>5000.0) rng=5000.0;
       for (i=0;i<mbeam;i++) this.remapBeam(i);
       wrng=rng;
+      remap();
+      replot();
+      repaint();
+    } else {
+      if (rng<1.0) rng=1.0;
+      if (rng>90.0) rng=90.0;
+      for (i=0;i<mbeam;i++) this.remapBeam(i);
+      erng=rng;
       remap();
       replot();
       repaint();
