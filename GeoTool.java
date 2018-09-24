@@ -22,6 +22,7 @@ public class GeoTool extends CloseFrame implements
   private Button pbtn;
   private Button vbtn;
   private Button wbtn;
+  private Button ebtn;
  
   private TextField rfld;
 
@@ -124,10 +125,12 @@ public class GeoTool extends CloseFrame implements
     pbtn=new Button("Lambda Power");
     vbtn=new Button("Velocity");
     wbtn=new Button("Spectral Width");
+    ebtn=new Button("Elevation Angle");
   
     pbtn.addActionListener(this);
     vbtn.addActionListener(this);
     wbtn.addActionListener(this);
+    ebtn.addActionListener(this);
 
     rfld=new TextField(12);
     rfld.addActionListener(new RngText());   
@@ -217,6 +220,7 @@ public class GeoTool extends CloseFrame implements
     a.add(vbtn);
     a.add(rfld);
     a.add(wbtn);
+    a.add(ebtn);
 
     Panel b=new Panel();
     b.setLayout(new GridLayout(9,1,0,0));
@@ -307,6 +311,10 @@ public class GeoTool extends CloseFrame implements
     } else if (arg.equals("Spectral Width")) {
       geo.setPrm(2);
       color.setPrm(2);
+      rfld.setText(""+geo.getRange());
+    } else if (arg.equals("Elevation Angle")) {
+      geo.setPrm(3);
+      color.setPrm(3);
       rfld.setText(""+geo.getRange());
     }
   }

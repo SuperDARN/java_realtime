@@ -18,6 +18,7 @@ public class ColorBar extends Canvas {
   private double prng=30.0;
   private double vrng=1000.0;
   private double wrng=500.0;
+  private double erng=50.0;
  
   Dimension d;
   private int prm=0;
@@ -79,8 +80,11 @@ public class ColorBar extends Canvas {
     } else if (prm==1) {
        g.drawString(Double.toString(prng),dx+d.width+8,dy);
        g.drawString(Double.toString(0),dx+d.width+8,dy+d.height+fasc);
-    } else {
+    } else if (prm==2) {
        g.drawString(Double.toString(wrng),dx+d.width+8,dy);
+       g.drawString(Double.toString(0),dx+d.width+4,dy+d.height+fasc);
+    } else {
+       g.drawString(Double.toString(erng),dx+d.width+8,dy);
        g.drawString(Double.toString(0),dx+d.width+4,dy+d.height+fasc);
     }
   }
@@ -135,10 +139,15 @@ public class ColorBar extends Canvas {
       if (rng>100.0) rng=100.0;
       prng=rng;
       this.repaint();
-    } else {
+    } else if (prm==2) {
       if (rng<1.0) rng=1.0;
       if (rng>5000.0) rng=5000.0;
       wrng=rng;
+      this.repaint();
+    } else {
+      if (rng<1.0) rng=1.0;
+      if (rng>90.0) rng=90.0;
+      erng=rng;
       this.repaint();
     } 
   }

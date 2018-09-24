@@ -24,7 +24,7 @@ public class GeoCanvas extends BaseCanvas {
   PolyVector clip;
 
   private GeoGrid grid=new GeoGrid();
-  public byte map[][][]=new byte [RadarData.MAX_BEAM][RadarData.MAX_RANGE][4];
+  public byte map[][][]=new byte [RadarData.MAX_BEAM][RadarData.MAX_RANGE][5];
   private boolean gflg=true;
   private int bxcar=0;
   private int prm=0;
@@ -33,6 +33,7 @@ public class GeoCanvas extends BaseCanvas {
   private double prng=30.0;
   private double vrng=1000.0;
   private double wrng=500.0;
+  private double erng=50.0;
 
   private int gskip=0;
   Color backcolor=Color.white;
@@ -47,7 +48,7 @@ public class GeoCanvas extends BaseCanvas {
   boolean fillglobe=true;
 
   private double dval[][][]=
-          new double [RadarData.MAX_BEAM][RadarData.MAX_RANGE][3];
+          new double [RadarData.MAX_BEAM][RadarData.MAX_RANGE][4];
 
   private int nrang[]=new int [RadarData.MAX_BEAM];
   private int frang[]=new int [RadarData.MAX_BEAM];
@@ -142,6 +143,10 @@ public class GeoCanvas extends BaseCanvas {
         else if (dval[b][r][2]<0) plot=-128;
         else plot= (byte) ((255*dval[b][r][2]/wrng)-128);
         map[b][r][3]=plot;
+        if (dval[b][r][3]>erng) plot=127;
+        else if (dval[b][r][3]<0) plot=-128;
+        else plot= (byte) ((255*dval[b][r][3]/erng)-128);
+        map[b][r][4]=plot;
       }
     }
   }
@@ -195,6 +200,7 @@ public class GeoCanvas extends BaseCanvas {
 	dval[b][r][0]=data.fit.rng[r].v;
 	dval[b][r][1]=data.fit.rng[r].p_l;
 	dval[b][r][2]=data.fit.rng[r].w_l;
+	dval[b][r][3]=data.fit.elv[r].normal;
 	if (data.fit.rng[r].gsct==0) map[b][r][0]=1;
         else map[b][r][0]=2;
       } else map[b][r][0]=0;
@@ -264,7 +270,8 @@ public class GeoCanvas extends BaseCanvas {
   public double getRange() {
     if (prm==0) return vrng;
     if (prm==1) return prng;
-    return wrng;
+    if (prm==2) return wrng;
+    return erng;
   }
 
   public void setGflg(boolean gflg) {
@@ -367,11 +374,18 @@ public class GeoCanvas extends BaseCanvas {
       for (i=0;i<mbeam;i++) this.remapBeam(i);
       this.render();
       this.repaint();
-    } else {
+    } else if (prm==2) {
       if (rng<1.0) rng=1.0;
       if (rng>5000.0) rng=5000.0;
       for (i=0;i<mbeam;i++) this.remapBeam(i);
       wrng=rng;
+      this.render();
+      this.repaint();
+    } else {
+      if (rng<1.0) rng=1.0;
+      if (rng>90.0) rng=90.0;
+      for (i=0;i<mbeam;i++) this.remapBeam(i);
+      erng=rng;
       this.render();
       this.repaint();
     } 
