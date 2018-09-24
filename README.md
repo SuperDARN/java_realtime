@@ -1,7 +1,7 @@
 Here are some basic instructions for compiling and using the java applet on a linux computer.
 Similar instructions should work on any operating system where the java SDK is installed.
 
-To compile java in this directory
+To compile java in this directory:
 
 `javac *.java`
 
@@ -17,19 +17,19 @@ where:
 `<port>` is the tcp port number for the real time feed  
 `<host>` is the internet host (ip address or hostname) providing the feed  
 
-Other command line options include
+Other command line options include:
 
-`-c <channels>`  
-`-b <beams>`  
-`-r <nrangs>`  
-`-mb <maxbeams>`  
-`-f <config_filename>`
+`-c <channel>`  
+`-b <beam>`  (default is 7)  
+`-r <nrang>` (default is 75)  
+`-mb <maxbeam>` (default is 16)  
+`-f <config_filename>` (default is radar.cfg)  
 
-where a configuration file has the format
+where a configuration file has the format:
 
 ```
 hosts=<host>  
-ports=<ports>  
+ports=<port>  
 names=<name>
 ...
 ```
