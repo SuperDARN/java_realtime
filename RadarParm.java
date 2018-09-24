@@ -39,7 +39,7 @@ class RadarStat {
 
 class RadarIntt {
     short sc;
-    short us;
+    int us;
 }
 
 public class RadarParm {
@@ -299,8 +299,8 @@ public class RadarParm {
 	   flag=true;
        } 
 
-       if ((scl.name.equals("intt.us")) && (scl.type==DataMap.DATASHORT)) {
-	   intt.us=((Short) scl.value).shortValue();
+       if ((scl.name.equals("intt.us")) && (scl.type==DataMap.DATALONG)) {
+	   intt.us=((Integer) scl.value).intValue();
             System.err.println(scl.name+" = "+intt.us); 
 
 	   flag=true;
