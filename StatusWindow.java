@@ -114,7 +114,7 @@ public class StatusWindow extends CloseFrame implements Runnable {
     this.layout(new Label("Integration Time: (s)"),0,6,1,1);
    
     this.layout(new Label("Noise:"),0,7,1,1);
-    this.layout(new Label("Frequency:"),0,8,1,1);
+    this.layout(new Label("Frequency: (kHz)"),0,8,1,1);
     this.layout(new Label("First Range: (km)"),0,9,1,1);
     this.layout(new Label("Range Separation: (km)"),0,10,1,1);
     this.layout(new Label("Number of Ranges"),0,11,1,1);
