@@ -91,10 +91,10 @@ public class GeoMap {
 
     double kxg,kyg,kzg,kxr,kyr,kzr;
     double rrad,rlat,rlon,del;
-    double a=6378.16;
+    double a=6378.137;
     double b,e2;
 
-    b=a*(1.0-1.0/298.25);
+    b=a*(1.0-1.0/298.257223563);
 
     kxg=cosd(xel)*sind(xal);
     kyg=cosd(xel)*cosd(xal);
@@ -116,10 +116,10 @@ public class GeoMap {
     double tan_azi,azi,rel,xel,fhx,xal,rrho,ral,xh;
     double dum;
     double frad;  
-    double a=6378.16;
+    double a=6378.137;
     double b,e2;
 
-    b=a*(1.0-1.0/298.25);
+    b=a*(1.0-1.0/298.257223563);
     e2=(a*a)/(b*b)-1;
  
     if (fh<=150) xh=fh;
