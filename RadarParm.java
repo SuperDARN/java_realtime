@@ -300,14 +300,12 @@ public class RadarParm {
        } 
 
        if ((scl.name.equals("intt.us")) && (scl.type==DataMap.DATASHORT)) {
-	   intt.us=((Short) scl.value).intValue();
+	   intt.us=((Short) scl.value).shortValue();
             System.err.println(scl.name+" = "+intt.us); 
-
 	   flag=true;
        } else if ((scl.name.equals("intt.us")) && (scl.type==DataMap.DATALONG)) {
 	   intt.us=((Integer) scl.value).intValue();
             System.err.println(scl.name+" = "+intt.us); 
-
 	   flag=true;
        } 
 
