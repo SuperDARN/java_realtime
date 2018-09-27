@@ -22,7 +22,7 @@ public class TimeUTC {
   public static String getString(int yr,int mo,int dy,int hr,int mt,int sc) {
     DecimalFormat df=new DecimalFormat("00");
   
-    return month[mo-1]+", "+df.format(dy)+" "+yr+"   "+df.format(hr)+
+    return month[mo-1]+", "+df.format(dy)+" "+yr+"   "+df.format(hr)+":"+
            df.format(mt)+":"+df.format(sc)+" UT";
   }	     
 }     
