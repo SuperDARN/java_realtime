@@ -101,7 +101,7 @@ public class Grid  {
     return p;
   }
   
-  public void drawGrid(Graphics g,Dimension dm,int beam,int step) {
+  public void drawGrid(Graphics g,Dimension dm,int beam,int step,int geo) {
     if (g==null) return;
     if (set[beam]==false) return;
     int rng;
@@ -128,23 +128,44 @@ public class Grid  {
      d=(int) (grid[beam][nrng[beam]][1].y*dm.height);
      g.drawLine(a,b,c,d);
 
-     if ((step !=0) || (beam==0)) {
-       for (rng=0;rng<nrng[beam];rng++) {
-         a=(int) (grid[beam][rng][0].x*dm.width);
-         b=(int) (grid[beam][rng][0].y*dm.height);
-         c=(int) (grid[beam][rng+1][0].x*dm.width);
-         d=(int) (grid[beam][rng+1][0].y*dm.height);
-         g.drawLine(a,b,c,d);
+     if (geo==1) {
+       if ((step !=0) || (beam==0)) {
+         for (rng=0;rng<nrng[beam];rng++) {
+           a=(int) (grid[beam][rng][0].x*dm.width);
+           b=(int) (grid[beam][rng][0].y*dm.height);
+           c=(int) (grid[beam][rng+1][0].x*dm.width);
+           d=(int) (grid[beam][rng+1][0].y*dm.height);
+           g.drawLine(a,b,c,d);
+         }
        }
-     }
-     if ((step !=0) || (beam==mbeam-1)) {
-        for (rng=0;rng<nrng[beam];rng++) {
-          a=(int) (grid[beam][rng][1].x*dm.width);
-          b=(int) (grid[beam][rng][1].y*dm.height);
-          c=(int) (grid[beam][rng+1][1].x*dm.width);
-          d=(int) (grid[beam][rng+1][1].y*dm.height);
-          g.drawLine(a,b,c,d);
-        }
+       if ((step !=0) || (beam==mbeam-1)) {
+          for (rng=0;rng<nrng[beam];rng++) {
+            a=(int) (grid[beam][rng][1].x*dm.width);
+            b=(int) (grid[beam][rng][1].y*dm.height);
+            c=(int) (grid[beam][rng+1][1].x*dm.width);
+            d=(int) (grid[beam][rng+1][1].y*dm.height);
+            g.drawLine(a,b,c,d);
+          }
+       }
+     } else {
+       if ((step !=0) || (beam==0)) {
+         for (rng=0;rng<nrng[beam];rng++) {
+           a=(int) (grid[beam][rng][1].x*dm.width);
+           b=(int) (grid[beam][rng][1].y*dm.height);
+           c=(int) (grid[beam][rng+1][1].x*dm.width);
+           d=(int) (grid[beam][rng+1][1].y*dm.height);
+           g.drawLine(a,b,c,d);
+         }
+       }
+       if ((step !=0) || (beam==mbeam-1)) {
+          for (rng=0;rng<nrng[beam];rng++) {
+            a=(int) (grid[beam][rng][0].x*dm.width);
+            b=(int) (grid[beam][rng][0].y*dm.height);
+            c=(int) (grid[beam][rng+1][0].x*dm.width);
+            d=(int) (grid[beam][rng+1][0].y*dm.height);
+            g.drawLine(a,b,c,d);
+          }
+       }
      }
   }
 

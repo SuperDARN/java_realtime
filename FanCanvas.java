@@ -187,7 +187,7 @@ public class FanCanvas extends BaseCanvas {
         eraseBeam(bg,b);
         drawBeam(bg,b);
         bg.setColor(gridcolor);
-        grid.drawGrid(bg,s,b,gskip);
+        grid.drawGrid(bg,s,b,gskip,0);
     }
     
     bg.dispose();
@@ -216,7 +216,7 @@ public class FanCanvas extends BaseCanvas {
       }
     }       
     bg.setColor(gridcolor);
-    grid.drawGrid(bg,s,b,gskip);
+    grid.drawGrid(bg,s,b,gskip,0);
   }
 
   public double getRange() {

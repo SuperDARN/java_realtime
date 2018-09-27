@@ -235,7 +235,7 @@ public class GeoCanvas extends BaseCanvas {
     for (b=0;b<mbeam;b++) {
         drawBeam(bg,b);
         bg.setColor(gridcolor);
-        grid.drawGrid(bg,s,b,gskip);
+        grid.drawGrid(bg,s,b,gskip,1);
     }
     bg.setColor(meridiancolor);
     if (showmeridian==true) meridian.draw(bg,null,0,0,s.width,s.height,0);
@@ -264,7 +264,7 @@ public class GeoCanvas extends BaseCanvas {
       }
     }       
     bg.setColor(gridcolor);
-    grid.drawGrid(bg,s,b,gskip);
+    grid.drawGrid(bg,s,b,gskip,1);
   }
 
   public double getRange() {
