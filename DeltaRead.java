@@ -56,7 +56,6 @@ public class DeltaRead extends Thread {
   }
  
   private void decodeBlock() {
-    double time;
     int rngNum=0;
     int index=0;
     int step=0;    

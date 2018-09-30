@@ -79,7 +79,7 @@ public class TimeWindow extends CloseFrame implements Runnable,ActionListener {
   }
 
   public void plotData() {
-    int status,i;
+    int status;
     if (data.prm.bmnum !=bmnum) return;
     station.setText(StationID.toString(data.prm.stid));
     timestr.setText(TimeUTC.getString(data.prm.time.yr,data.prm.time.mo,

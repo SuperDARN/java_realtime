@@ -153,7 +153,6 @@ public class GeoCanvas extends BaseCanvas {
 
 
   public void plotData(RadarData data) {
-    Graphics bg=null;
 
     if (rpos==null) {
        rpos=new RadarPos(data.prm.stid);
@@ -213,7 +212,6 @@ public class GeoCanvas extends BaseCanvas {
   }
 
   public void render() {
-    Polygon p;
     int b;
     if (img==null) return;
     Graphics bg=img.getGraphics();

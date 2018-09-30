@@ -88,10 +88,10 @@ public class GeoMap {
   private static double geocnvrt(double gdlat,double gdlon,
 			  double xal,double xel) {
 
-    double kxg,kyg,kzg,kxr,kyr,kzr;
-    double rrad,rlat,rlon,del;
+    double kxg,kyg,kzg,kxr,kyr;
+    double rrad,rlat,del;
     double a=6378.137;
-    double b,e2;
+    double b;
 
     b=a*(1.0-1.0/298.257223563);
 
@@ -113,7 +113,6 @@ public class GeoMap {
 
     double rrad,rlat,rlon;
     double tan_azi,azi,rel,xel,fhx,xal,rrho,ral,xh;
-    double dum;
     double frad;  
     double a=6378.137;
     double b,e2;

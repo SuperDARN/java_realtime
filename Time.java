@@ -95,7 +95,6 @@ public class Time {
 
   void setEpoch(double tme) {
     int yrsec=0;
-    int sec;
     int i=0;
     int yr;
 

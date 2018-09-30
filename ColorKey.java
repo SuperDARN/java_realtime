@@ -17,7 +17,6 @@ public class ColorKey { /* the palette object */
 
   static { /* build the palette table */
     int r,g,b;
-    int c;
     int i;
    
     /* This is for the -ve to +ve and the 0 to +ve color scale */ 

@@ -87,7 +87,6 @@ public class PlotPoly extends PolyVector {
     Cart a,b,pp,qp,c;
     PolyVector tmp;
 
-    int i;
     if (this.active==true) {
       /* System.err.println("Waiting for plot polygon array to complete"); */
       this.poll();

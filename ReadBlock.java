@@ -179,7 +179,6 @@ public class ReadBlock {
     long num;
     long skip;
     int size;
-    int id;
 
     if (block >=max) return null;
     if (block <0) return null;

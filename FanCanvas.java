@@ -177,7 +177,6 @@ public class FanCanvas extends BaseCanvas {
   }
 
   public void render() {
-    Polygon p;
     int b;
     if (img==null) return;
     Graphics bg=img.getGraphics();

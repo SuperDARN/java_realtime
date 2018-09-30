@@ -14,7 +14,7 @@
 
 public class FanGrid  extends Grid {
   public void generate(int bmnum,int mbeam,int nrang) {
-    int bm,rng;
+    int rng;
     double rad;
     float sep=3;
     this.mbeam=mbeam;
