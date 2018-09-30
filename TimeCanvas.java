@@ -569,7 +569,7 @@ private void drawGrid(Graphics g) {
     } else {
       tme=fstart+flength*(x-bx)/wd;
       rng=(NRANG+1)-(NRANG+1)*(y-by)/ht;
-      tstr=new String("Unknown");
+      tstr="Unknown";
       hotbox.set(time.bmnum,rng,(byte) 0,0,
                  0,0,0,0,0,tstr); 
     }

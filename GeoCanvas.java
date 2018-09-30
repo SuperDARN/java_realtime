@@ -113,7 +113,7 @@ public class GeoCanvas extends BaseCanvas {
       tstr=TimeUTC.getString(time[rb.bm].year,time[rb.bm].month,time[rb.bm].day,
                  time[rb.bm].hour,time[rb.bm].minute,(int) time[rb.bm].second);
   
-    } else tstr=new String("Unknown");
+    } else tstr="Unknown";
 
     if (geo !=null) 
        hotbox.set(rb.bm,rb.rng,map[rb.bm][rb.rng][0],dval[rb.bm][rb.rng][prm],

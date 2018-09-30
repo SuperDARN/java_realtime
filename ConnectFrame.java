@@ -37,7 +37,7 @@ public class ConnectFrame extends CloseFrame implements ActionListener {
  
   DeltaRead delta;
 
-  String version=new String("3.0");
+  String version="3.0";
 
   public void kill() {
     this.setVisible(false);

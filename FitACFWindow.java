@@ -50,17 +50,17 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
     int i=0,j=0,k=0,l=0;
     Button open=null;
    
-    if (hosts==null) hosts=new String("209.128.50.18");	
-    if (ports==null) ports=new String("1024");
-    if (names==null) names=new String("Unknown");
-    if (streams==null) streams=new String("1");
-    if (channels==null) channels=new String("a");
-    if (beams==null) beams=new String("8");
-    if (mbeams==null) mbeams=new String("16");
-    if (nrangs==null) nrangs=new String("75");
+    if (hosts==null) hosts="209.128.50.18";	
+    if (ports==null) ports="1024";
+    if (names==null) names="Unknown";
+    if (streams==null) streams="1";
+    if (channels==null) channels="a";
+    if (beams==null) beams="7";
+    if (mbeams==null) mbeams="16";
+    if (nrangs==null) nrangs="75";
 
-    if (mapname==null) mapname=new String("mapdata");
-    if (sf==null) sf=new String("2.8");   
+    if (mapname==null) mapname="mapdata";
+    if (sf==null) sf="2.8";
      
     globe=new PolyVector(10);
     world=new World(mapname,globe);
