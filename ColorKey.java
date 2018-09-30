@@ -10,7 +10,6 @@
 
 
 
-import java.lang.*;
 import java.awt.*;
 
 public class ColorKey { /* the palette object */

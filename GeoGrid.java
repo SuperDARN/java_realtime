@@ -10,7 +10,6 @@
 
 
 
-import java.lang.*;
 
 public class GeoGrid  extends Grid {
 

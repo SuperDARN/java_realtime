@@ -12,7 +12,6 @@
 
 
 import java.awt.*;
-import java.lang.*;
 
 public class Stereo extends Transform {
  

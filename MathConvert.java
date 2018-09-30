@@ -12,7 +12,6 @@
 
 
 
-import java.lang.*;
 
 /* class that handles conversion of byte arrays into numerical values */
   

@@ -10,7 +10,6 @@
 
 
 
-import java.lang.*;
 
 
 public class FanGrid  extends Grid {

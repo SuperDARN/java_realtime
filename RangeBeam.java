@@ -11,7 +11,6 @@
 
 
 
-import java.lang.*;
 
 public class RangeBeam {
   int rng,bm;
