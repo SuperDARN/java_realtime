@@ -92,19 +92,19 @@ public class DataMap {
            switch (type) {
            case DATACHAR:
                scl=new DataMapScalar(name,type,
-                                     new Character((char) buf[off]));
+                                     Character.valueOf((char) buf[off]));
 	       scalar.addElement(scl);
                off++;
                break;
            case DATASHORT:
                scl=new DataMapScalar(name,type,
-				     new Short(MathConvert.shrt(buf,off)));
+				     Short.valueOf(MathConvert.shrt(buf,off)));
 	       scalar.addElement(scl);
                off+=2;
                break;
            case DATALONG:
                scl=new DataMapScalar(name,type,
-				     new Integer(MathConvert.lng(buf,off)));
+				     Integer.valueOf(MathConvert.lng(buf,off)));
 	       scalar.addElement(scl);
 
                off+=4;
@@ -112,14 +112,14 @@ public class DataMap {
 
            case DATAFLOAT:
                scl=new DataMapScalar(name,type,
-				     new Float(MathConvert.flt(buf,off)));
+				     Float.valueOf(MathConvert.flt(buf,off)));
 	       scalar.addElement(scl);
                off+=4;
                break;
 
            case DATADOUBLE:
                scl=new DataMapScalar(name,type,
-				     new Double(MathConvert.dbl(buf,off)));
+				     Double.valueOf(MathConvert.dbl(buf,off)));
 	       scalar.addElement(scl);
                off+=8;
                break;
@@ -157,32 +157,32 @@ public class DataMap {
          switch (type) {
          case DATACHAR:
 	     for (n=0;n<t;n++) {
-                obj[n]=new Character((char) buf[off]);
+                obj[n]=Character.valueOf((char) buf[off]);
                 off++;
 	     }
              break;
          case DATASHORT:
 	     for (n=0;n<t;n++) {
-		obj[n]=new Short(MathConvert.shrt(buf,off));
+		obj[n]=Short.valueOf(MathConvert.shrt(buf,off));
                 off+=2;
 	     }
              break;
 	
          case DATALONG:
 	     for (n=0;n<t;n++) {
-		obj[n]=new Integer(MathConvert.lng(buf,off));
+		obj[n]=Integer.valueOf(MathConvert.lng(buf,off));
                 off+=4;
 	     }
              break;
          case DATAFLOAT:
 	     for (n=0;n<t;n++) {
-		obj[n]=new Float(MathConvert.flt(buf,off));
+		obj[n]=Float.valueOf(MathConvert.flt(buf,off));
                 off+=4;
 	     }
              break;
 	 case DATADOUBLE:
 	     for (n=0;n<t;n++) {
-		obj[n]=new Double(MathConvert.dbl(buf,off));
+		obj[n]=Double.valueOf(MathConvert.dbl(buf,off));
                 off+=8;
 	     }
              break;

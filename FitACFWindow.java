@@ -98,7 +98,7 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
 	if (i !=-1) prtstr=ports.substring(j,i);
 	else prtstr=ports.substring(j);
 	try {
-	    port[k]=(new Integer(prtstr.trim())).intValue();
+	    port[k]=(Integer.valueOf(prtstr.trim()));
 	} catch (NumberFormatException ex) {
 	    port[k]=1024;
 	}
@@ -118,7 +118,7 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
       if (i !=-1) ststr=streams.substring(j,i);
       else ststr=streams.substring(j);
       try {
-         stream[k]=(new Integer(ststr.trim())).intValue();
+         stream[k]=(Integer.valueOf(ststr.trim()));
       } catch (NumberFormatException ex) {
         stream[k]=1;
       }
@@ -161,7 +161,7 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
 	if (i !=-1) bmstr=beams.substring(j,i);
 	else bmstr=beams.substring(j);
 	try {
-	    beam[k]=(new Integer(bmstr.trim())).intValue();
+	    beam[k]=(Integer.valueOf(bmstr.trim()));
 	} catch (NumberFormatException ex) {
 	    beam[k]=8;
 	}
@@ -181,7 +181,7 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
 	if (i !=-1) mbmstr=mbeams.substring(j,i);
 	else mbmstr=mbeams.substring(j);
 	try {
-	    mbeam[k]=(new Integer(mbmstr.trim())).intValue();
+	    mbeam[k]=(Integer.valueOf(mbmstr.trim()));
 	} catch (NumberFormatException ex) {
 	    mbeam[k]=16;
 	}
@@ -202,7 +202,7 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
 	if (i !=-1) nrstr=nrangs.substring(j,i);
 	else nrstr=nrangs.substring(j);
 	try {
-	    nrang[k]=(new Integer(nrstr.trim())).intValue();
+	    nrang[k]=(Integer.valueOf(nrstr.trim()));
 	} catch (NumberFormatException ex) {
 	    nrang[k]=75;
 	}
@@ -232,7 +232,7 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
     }
 
     try {
-       scale=(new Double(sf.trim())).doubleValue();
+       scale=(Double.valueOf(sf.trim()));
     } catch (NumberFormatException ex) {
        scale=2.8;
     }

@@ -43,7 +43,7 @@ public class FanTool extends CloseFrame implements
   private class RngText implements ActionListener {
     public void actionPerformed(ActionEvent evt) {
       try {
-        double rng=(new Double(rfld.getText().trim())).doubleValue();
+        double rng=(Double.valueOf(rfld.getText().trim()));
         if (rng<1) rng=1;
         rfld.setText(""+rng);
         color.setRange(rng);
