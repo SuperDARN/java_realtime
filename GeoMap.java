@@ -89,7 +89,7 @@ public class GeoMap {
 			  double xal,double xel) {
 
     double kxg,kyg,kzg,kxr,kyr;
-    double rrad,rlat,del;
+    double rlat,del;
     double a=6378.137;
     double b;
 

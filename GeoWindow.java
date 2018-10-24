@@ -37,7 +37,6 @@ public class GeoWindow extends CloseFrame implements Runnable,ActionListener {
   public GeoWindow(String name,RadarData data,HotBox hotbox,
 		   PolyVector meridian,PolyVector globe,Transform trf,
                    int mbeam) {
-    boolean stop=false;
     this.data=data;
     timestr=new TextField(20);
     station=new TextField(15);
@@ -80,7 +79,7 @@ public class GeoWindow extends CloseFrame implements Runnable,ActionListener {
   }
 
   public void plotData() {
-    int status,i;
+    int status;
 
     station.setText(StationID.toString(data.prm.stid));
     beam.setText(Integer.toString(data.prm.bmnum));

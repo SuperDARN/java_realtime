@@ -203,7 +203,6 @@ public class FanCanvas extends BaseCanvas {
   }
 
   public void drawBeam(Graphics bg,int b) {
-    Polygon p;  
     for (int r=0;r<nrang[b];r++) {
       if (map[b][r][0] !=0) { 
         if (prm==0) {

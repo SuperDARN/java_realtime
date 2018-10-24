@@ -191,7 +191,6 @@ public class PlotPoly extends PolyVector {
   }
 
   public void convert(Transform convert) {
-    int i;
     if (root.active==true) {
       /* System.err.println("Waiting for polygon array to fill"); */
       root.poll();
