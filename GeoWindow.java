@@ -79,7 +79,6 @@ public class GeoWindow extends CloseFrame implements Runnable,ActionListener {
   }
 
   public void plotData() {
-    int status;
 
     station.setText(StationID.toString(data.prm.stid));
     beam.setText(Integer.toString(data.prm.bmnum));
