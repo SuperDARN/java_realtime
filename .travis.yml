@@ -1,0 +1,11 @@
+language: java
+jdk:
+  - oraclejdk8
+  - oraclejdk9
+  - openjdk7
+  - openjdk8
+install:
+  - javac -Xlint:all *.java
+script: true
+notifications:
+  email: false
