@@ -29,7 +29,6 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
   int channel[]=new int[32];
 
   int beam[]=new int[32];
-  int mbeam[]=new int[32];
   int nrang[]=new int[32];
 
 
@@ -45,7 +44,7 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
 
  
   public FitACFWindow(String hosts,String ports,String names,String streams,
-                      String channels,String beams,String mbeams,String nrangs,String deltas,
+                      String channels,String beams,String nrangs,String deltas,
 		      String sf,String mapname) {
     int i=0,j=0,k=0,l=0;
     Button open=null;
@@ -56,7 +55,6 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
     if (streams==null) streams="1";
     if (channels==null) channels="a";
     if (beams==null) beams="7";
-    if (mbeams==null) mbeams="16";
     if (nrangs==null) nrangs="75";
 
     if (mapname==null) mapname="mapdata";
@@ -174,26 +172,6 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
 	System.err.println("Summary Beam="+beam[i]);
     }
 
-    i=k=j=0;
-    String mbmstr;
-    do {
-	i=mbeams.indexOf(",",i);
-	if (i !=-1) mbmstr=mbeams.substring(j,i);
-	else mbmstr=mbeams.substring(j);
-	try {
-	    mbeam[k]=(Integer.valueOf(mbmstr.trim()));
-	} catch (NumberFormatException ex) {
-	    mbeam[k]=16;
-	}
-	k++;
-	i++;
-	j=i;
-    } while (i !=0);
-
-    for (i=0;i<k;i++) {
-	System.err.println("Maximum Beams="+mbeam[i]);
-    }
-
 
     i=k=j=0;
     String nrstr;
@@ -263,7 +241,7 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
       if ((name[i] !=null) && (s.equals(name[i]))) {
         if (connex[i]==null) connex[i]=
           new ConnectFrame(name[i],host[i],port[i],stream[i],
-			   channel[i],beam[i],mbeam[i],nrang[i],
+			   channel[i],beam[i],nrang[i],
 			   meridian,globe,trf[i],deltaFile[i]);
         connex[i].setVisible(true);
       }

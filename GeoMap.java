@@ -160,7 +160,7 @@ public class GeoMap {
 
   public static MapPoint geo(int center,RadarPos pos,int frang,
 			  int rsep,int rxrise,double height,
-			  int mbeam,int bcrd,int rcrd) {
+			  int bcrd,int rcrd) {
     double psi,d,rx;
     double re=6356.779;
     int lagfr=20*frang/3;
@@ -178,7 +178,7 @@ public class GeoMap {
 
     if (rxrise==0) rx=pos.rxris;
     else rx=rxrise;
-    offset=mbeam/2.0-0.5;
+    offset=pos.mbeam/2.0-0.5;
     psi=pos.bmwidth*(bcrd-offset)+bm_edge;
     d=slantRange(lagfr,smsep,rx,range_edge,rcrd+1);
     

@@ -56,7 +56,7 @@ public class ConnectFrame extends CloseFrame implements ActionListener {
   }
 
   public ConnectFrame(String name,String host,int port,int stream,
-		      int channel,int bmnum,int mbeam,int nrang,
+		      int channel,int bmnum,int nrang,
 		      PolyVector meridian,
 		      PolyVector globe,Transform trf,
 		      String deltaFile) {
@@ -113,10 +113,10 @@ public class ConnectFrame extends CloseFrame implements ActionListener {
 
      hotbox=new HotBox(name);
 
-     status=new StatusWindow(name,data,mbeam);
-     fan=new FanWindow(name,data,hotbox,mbeam);
-     geo=new GeoWindow(name,data,hotbox,meridian,globe,trf,mbeam);
-     time=new TimeWindow(name,data,hotbox,bmnum,mbeam,nrang);
+     status=new StatusWindow(name,data);
+     fan=new FanWindow(name,data,hotbox);
+     geo=new GeoWindow(name,data,hotbox,meridian,globe,trf);
+     time=new TimeWindow(name,data,hotbox,bmnum,nrang);
  
      info=new InfoWindow(name,version);
      this.setTitle(name);

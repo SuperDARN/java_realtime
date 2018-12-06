@@ -31,7 +31,7 @@ public class FanWindow extends CloseFrame implements Runnable,ActionListener {
   private TextField freq;
   private Button tbtn;
  
-  public FanWindow(String name,RadarData data,HotBox hotbox,int mbeam) {
+  public FanWindow(String name,RadarData data,HotBox hotbox) {
     this.setTitle(name);
     this.data=data;
     timestr=new TextField(20);
@@ -60,7 +60,7 @@ public class FanWindow extends CloseFrame implements Runnable,ActionListener {
     p.add(tbtn);
    
     colorbar=new ColorBar(16,256);
-    fan=new FanCanvas(hotbox,mbeam);
+    fan=new FanCanvas(hotbox);
     tool=new FanTool(name,fan,colorbar);
 
     this.add("North",timestr);

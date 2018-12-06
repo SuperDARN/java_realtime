@@ -26,7 +26,6 @@ public static void main(String args[]) {
   String streams=null;
   String channels=null;
   String beams=null;
-  String mbeams=null;
   String nrangs=null;
   String deltas=null;
   String sf=null;
@@ -57,9 +56,6 @@ public static void main(String args[]) {
           i++;
 	} else if (args[i].startsWith("-r")==true) {
 	  nrangs=args[i+1];
-          i++;
-	} else if (args[i].startsWith("-mb")==true) {
-	  mbeams=args[i+1];
           i++;
 
 	} else if (args[i].startsWith("-d")==true) {
@@ -126,10 +122,6 @@ public static void main(String args[]) {
              j=arg.indexOf("=");
              nrangs=arg.substring(j+1);
 	  }
-          if (arg.startsWith("maxbeam")==true) {
-             j=arg.indexOf("=");
-             mbeams=arg.substring(j+1);
-	  }
 
           if (arg.startsWith("deltas")==true) {
              j=arg.indexOf("=");
@@ -160,13 +152,11 @@ public static void main(String args[]) {
     if (channels==null) channels="a";
     if (beams==null) beams="7";
     if (nrangs==null) nrangs="75";
-    if (mbeams==null) mbeams="16";
 
     if (mapname==null) mapname="mapdata";
     if (sf==null) sf="2.8";
-    new FitACFWindow(hosts,ports,names,streams,channels,beams,mbeams,
-                     nrangs,deltas,sf,
-                     mapname); 
+    new FitACFWindow(hosts,ports,names,streams,channels,beams,
+                     nrangs,deltas,sf,mapname); 
   }     
 
 }

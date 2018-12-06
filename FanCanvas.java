@@ -24,7 +24,6 @@ public class FanCanvas extends BaseCanvas {
   private boolean gflg=true;
   private int bxcar=0;
   private int prm=0;
-  private int mbeam=16;
 
   private double prng=30.0;
   private double vrng=1000.0;
@@ -57,9 +56,8 @@ public class FanCanvas extends BaseCanvas {
     }
   }
 
-  public FanCanvas(HotBox hotbox,int mbeam) {
+  public FanCanvas(HotBox hotbox) {
     this.hotbox=hotbox;
-    this.mbeam=mbeam;
     this.addMouseListener(new MousePress());
   }
 
@@ -71,7 +69,7 @@ public class FanCanvas extends BaseCanvas {
     System.err.println("bm="+rb.bm+", rng="+rb.rng+" ("+rkm+" km.)");
 
     MapPoint geo=GeoMap.geo(0,rpos,frang[rb.bm],rsep[rb.bm],rxrise[rb.bm],
-                            300,mbeam,rb.bm,rb.rng);
+                            300,rb.bm,rb.rng);
     if (geo !=null) System.err.println("lat="+geo.lat+", lon="+geo.lon);
 
     if (map[rb.bm][rb.rng][0]==0) {
@@ -135,7 +133,7 @@ public class FanCanvas extends BaseCanvas {
 
     if (nrang[b] !=data.prm.nrang) {
       if ((bg !=null) && (grid.set[b])) eraseBeam(bg,b);
-      grid.generate(b,mbeam,data.prm.nrang);
+      grid.generate(b,rpos.mbeam,data.prm.nrang);
     }
    
 
@@ -182,7 +180,7 @@ public class FanCanvas extends BaseCanvas {
     Graphics bg=img.getGraphics();
     if (bg==null) return;
   
-    for (b=0;b<mbeam;b++) {
+    for (b=0;b<rpos.mbeam;b++) {
         eraseBeam(bg,b);
         drawBeam(bg,b);
         bg.setColor(gridcolor);
@@ -274,27 +272,27 @@ public class FanCanvas extends BaseCanvas {
       if (rng<10.0) rng=10.0;
       if (rng>5000.0) rng=5000.0;
       vrng=rng;
-      for (i=0;i<mbeam;i++) this.remapBeam(i);
+      for (i=0;i<rpos.mbeam;i++) this.remapBeam(i);
       this.render();
       this.repaint();
     } else if (prm==1) {
       if (rng<1.0) rng=1.0;
       if (rng>100.0) rng=100.0;
       prng=rng;
-      for (i=0;i<mbeam;i++) this.remapBeam(i);
+      for (i=0;i<rpos.mbeam;i++) this.remapBeam(i);
       this.render();
       this.repaint();
     } else if (prm==2) {
       if (rng<1.0) rng=1.0;
       if (rng>5000.0) rng=5000.0;
-      for (i=0;i<mbeam;i++) this.remapBeam(i);
+      for (i=0;i<rpos.mbeam;i++) this.remapBeam(i);
       wrng=rng;
       this.render();
       this.repaint();
     } else {
       if (rng<1.0) rng=1.0;
       if (rng>90.0) rng=90.0;
-      for (i=0;i<mbeam;i++) this.remapBeam(i);
+      for (i=0;i<rpos.mbeam;i++) this.remapBeam(i);
       erng=rng;
       this.render();
       this.repaint();

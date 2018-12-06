@@ -28,7 +28,6 @@ public class GeoCanvas extends BaseCanvas {
   private boolean gflg=true;
   private int bxcar=0;
   private int prm=0;
-  private int mbeam=0;
  
   private double prng=30.0;
   private double vrng=1000.0;
@@ -70,10 +69,9 @@ public class GeoCanvas extends BaseCanvas {
   }
 
   public GeoCanvas(HotBox hotbox,PolyVector meridian,PolyVector globe,
-		   Transform trf,int mbeam)  {
+		   Transform trf)  {
     this.trf=trf;
     this.hotbox=hotbox;
-    this.mbeam=mbeam;
     this.addMouseListener(new MousePress());
     this.meridian=new PlotPoly(meridian);
     this.globe=new PlotPoly(globe);
@@ -98,7 +96,7 @@ public class GeoCanvas extends BaseCanvas {
     System.err.println("bm="+rb.bm+", rng="+rb.rng+" ("+rkm+" km.)");
 
     MapPoint geo=GeoMap.geo(0,rpos,frang[rb.bm],rsep[rb.bm],rxrise[rb.bm],
-                            300,mbeam,rb.bm,rb.rng);
+                            300,rb.bm,rb.rng);
     if (geo !=null) System.err.println("lat="+geo.lat+", lon="+geo.lon);
 
     if (map[rb.bm][rb.rng][0]==0) {
@@ -159,7 +157,7 @@ public class GeoCanvas extends BaseCanvas {
 
        /* set the view point */
        MapPoint p=GeoMap.geo(0,rpos,data.prm.frang,data.prm.rsep,0,300,
-			     mbeam,mbeam/2,data.prm.nrang/2);
+			     rpos.mbeam/2,data.prm.nrang/2);
        trf.setPos(p.lat,p.lon);
 
        meridian.convert(trf);
@@ -181,7 +179,7 @@ public class GeoCanvas extends BaseCanvas {
        rsep[b]=data.prm.rsep;
        rxrise[b]=data.prm.rxrise;
 
-       grid.generate(trf,rpos,b,mbeam,nrang[b],frang[b],rsep[b],rxrise[b]);
+       grid.generate(trf,rpos,b,nrang[b],frang[b],rsep[b],rxrise[b]);
     }
 
     tfreq[b]=data.prm.tfreq;
@@ -230,7 +228,7 @@ public class GeoCanvas extends BaseCanvas {
       bg.fillRect(0,0,s.width,s.height);
     }
    
-    for (b=0;b<mbeam;b++) {
+    for (b=0;b<rpos.mbeam;b++) {
         drawBeam(bg,b);
         bg.setColor(gridcolor);
         grid.drawGrid(bg,s,b,gskip,1);
@@ -361,27 +359,27 @@ public class GeoCanvas extends BaseCanvas {
       if (rng<10.0) rng=10.0;
       if (rng>5000.0) rng=5000.0;
       vrng=rng;
-      for (i=0;i<mbeam;i++) this.remapBeam(i);
+      for (i=0;i<rpos.mbeam;i++) this.remapBeam(i);
       this.render();
       this.repaint();
     } else if (prm==1) {
       if (rng<1.0) rng=1.0;
       if (rng>100.0) rng=100.0;
       prng=rng;
-      for (i=0;i<mbeam;i++) this.remapBeam(i);
+      for (i=0;i<rpos.mbeam;i++) this.remapBeam(i);
       this.render();
       this.repaint();
     } else if (prm==2) {
       if (rng<1.0) rng=1.0;
       if (rng>5000.0) rng=5000.0;
-      for (i=0;i<mbeam;i++) this.remapBeam(i);
+      for (i=0;i<rpos.mbeam;i++) this.remapBeam(i);
       wrng=rng;
       this.render();
       this.repaint();
     } else {
       if (rng<1.0) rng=1.0;
       if (rng>90.0) rng=90.0;
-      for (i=0;i<mbeam;i++) this.remapBeam(i);
+      for (i=0;i<rpos.mbeam;i++) this.remapBeam(i);
       erng=rng;
       this.render();
       this.repaint();

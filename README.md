@@ -22,7 +22,6 @@ Other command line options include:
 `-c <channel>`  
 `-b <beam>`  (default is 7)  
 `-r <nrang>` (default is 75)  
-`-mb <maxbeam>` (default is 16)  
 `-f <config_filename>` (default is radar.cfg)  
 
 where a configuration file has the format:

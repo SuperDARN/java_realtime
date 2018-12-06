@@ -50,10 +50,9 @@ public class StatusWindow extends CloseFrame implements Runnable {
     this.add(component);
   } 
 
-  public StatusWindow(String name,RadarData data,int mbeam) {
+  public StatusWindow(String name,RadarData data) {
 
     this.data=data;
-    this.mbeam=mbeam;
     time=new TextField(20);
     cp=new TextField(10);
     combf=new TextField(15);

@@ -35,8 +35,7 @@ public class GeoWindow extends CloseFrame implements Runnable,ActionListener {
 
   
   public GeoWindow(String name,RadarData data,HotBox hotbox,
-		   PolyVector meridian,PolyVector globe,Transform trf,
-                   int mbeam) {
+		   PolyVector meridian,PolyVector globe,Transform trf) {
     this.data=data;
     timestr=new TextField(20);
     station=new TextField(15);
@@ -65,7 +64,7 @@ public class GeoWindow extends CloseFrame implements Runnable,ActionListener {
     p.add(tbtn);
 
     colorbar=new ColorBar(16,256);
-    geo=new GeoCanvas(hotbox,meridian,globe,trf,mbeam);
+    geo=new GeoCanvas(hotbox,meridian,globe,trf);
     tool=new GeoTool(name,geo,colorbar);
 
     this.add("North",timestr);

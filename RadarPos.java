@@ -18,15 +18,17 @@ class RadarPos {
    double rxris=0;
    double bmwidth=0;
    double boresite=0;
+   int mbeam=0;
    
 
    public RadarPos(double gdlat,double gdlon,double boresite,
-            double bmwidth,double rxris) {
+            double bmwidth,double rxris,int mbeam) {
      this.gdlat=gdlat;
      this.gdlon=gdlon;
      this.rxris=rxris;
      this.bmwidth=bmwidth;
      this.boresite=boresite;
+     this.mbeam=mbeam;
    }
 
    public RadarPos(int st_id) {
@@ -41,6 +43,7 @@ class RadarPos {
          this.boresite=5.0;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=16;
          break;
        case 3: /* Kapuskasing (kap) */
          this.gdlat=+49.39;
@@ -48,6 +51,7 @@ class RadarPos {
          this.boresite=-12.00;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=16;
          break;
        case 4: /* Halley (hal) */
          this.gdlat=-75.52;
@@ -55,6 +59,7 @@ class RadarPos {
          this.boresite=5.0;
          this.bmwidth=-3.24;
          this.rxris=100.0;
+         this.mbeam=16;
          break;
        case 5: /* Saskatoon (sas) */
          this.gdlat=+52.16;
@@ -62,6 +67,7 @@ class RadarPos {
          this.boresite=23.10;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=16;
          break;
        case 6: /* Prince George (pgr) */
          this.gdlat=+53.98;
@@ -69,6 +75,7 @@ class RadarPos {
          this.boresite=-5.0;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=16;
          break;
        case 7: /* Kodiak (kod) */
          this.gdlat=+57.61;
@@ -76,6 +83,7 @@ class RadarPos {
          this.boresite=30.0;
          this.bmwidth=3.24;
          this.rxris=100.0;
+         this.mbeam=16;
          break;
        case 8: /* Stokkseyri (sto) */
          this.gdlat=+63.86;
@@ -83,6 +91,7 @@ class RadarPos {
          this.boresite=-59.0;
          this.bmwidth=3.29;
          this.rxris=100.0;
+         this.mbeam=16;
          break;
        case 9: /* Pykkvibaer (pyk) */
          this.gdlat=+63.77;
@@ -90,6 +99,7 @@ class RadarPos {
          this.boresite=30.0;
          this.bmwidth=3.24;
          this.rxris=100.0;
+         this.mbeam=16;
          break;
        case 10: /* Hankasalmi (han) */
          this.gdlat=+62.32;
@@ -97,6 +107,7 @@ class RadarPos {
          this.boresite=-12.0;
          this.bmwidth=3.24;
          this.rxris=100.0;
+         this.mbeam=16;
          break;
        case 11: /* Sanae (san) */
          this.gdlat=-71.68;
@@ -104,6 +115,7 @@ class RadarPos {
          this.boresite=173.2;
          this.bmwidth=-3.24;
          this.rxris=100.0;
+         this.mbeam=16;
          break;
        case 12: /* Syowa South (sys) */
          this.gdlat=-69.0;
@@ -111,6 +123,7 @@ class RadarPos {
          this.boresite=165.0;
          this.bmwidth=-3.33;
          this.rxris=50.0;
+         this.mbeam=16;
          break;
        case 13: /* Syowa East (sye) */
          this.gdlat=-69.01;
@@ -118,6 +131,7 @@ class RadarPos {
          this.boresite=106.5;
          this.bmwidth=-3.33;
          this.rxris=50.0;
+         this.mbeam=16;
          break;
        case 14: /* TIGER (tig) */
          this.gdlat=-43.38;
@@ -125,6 +139,7 @@ class RadarPos {
          this.boresite=180.0;
          this.bmwidth=-3.24;
          this.rxris=100.0;
+         this.mbeam=16;
          break;
        case 15: /* Kerguelen (ker) */
          this.gdlat=-49.35;
@@ -132,6 +147,7 @@ class RadarPos {
          this.boresite=168.0;
          this.bmwidth=-3.24;
          this.rxris=100.0;
+         this.mbeam=16;
          break;
        case 16: /* King Salmon (ksr) */
          this.gdlat=58.68;
@@ -139,6 +155,7 @@ class RadarPos {
          this.boresite=-20.0;
          this.bmwidth=3.24;
          this.rxris=100.0;
+         this.mbeam=16;
          break;
       case 18: /* Unwin (unw) */
          this.gdlat=-46.51;
@@ -146,6 +163,7 @@ class RadarPos {
          this.boresite=227.9;
          this.bmwidth=-3.24;
          this.rxris=100.0;
+         this.mbeam=16;
          break;
       case 19: /* Zhongshan Station (zho) */
          this.gdlat=-69.379;
@@ -153,6 +171,7 @@ class RadarPos {
          this.boresite=72.5;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=16;
          break;
       case 20: /* McMurdo (mcm) */
          this.gdlat=-77.88;
@@ -160,6 +179,7 @@ class RadarPos {
          this.boresite=263.4;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=16;
          break;
       case 21: /* Falkland Islands (fir) */
          this.gdlat=-51.831;
@@ -167,6 +187,7 @@ class RadarPos {
          this.boresite=178.3;
          this.bmwidth=-3.24;
          this.rxris=0.0;
+         this.mbeam=16;
          break;
       case 22: /* South Pole (sps) */
          this.gdlat=-89.995;
@@ -174,6 +195,7 @@ class RadarPos {
          this.boresite=75.7;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=16;
          break;
       case 24: /* Buckland Park (bpk) */
          this.gdlat=-34.62;
@@ -181,6 +203,7 @@ class RadarPos {
          this.boresite=146.5;
          this.bmwidth=3.24;
          this.rxris=100.0;
+         this.mbeam=22;
          break;
       case 32: /* Wallops Island (wal) */
          this.gdlat=+37.93;
@@ -188,6 +211,7 @@ class RadarPos {
          this.boresite=35.9;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=24;
          break;
       case 33: /* Blackstone (bks) */
          this.gdlat=+37.10;
@@ -195,6 +219,7 @@ class RadarPos {
          this.boresite=-40.0;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=24;
          break;
       case 40: /* Hokkaido East (hok) */
          this.gdlat=+43.53;
@@ -202,6 +227,7 @@ class RadarPos {
          this.boresite=30.0;
          this.bmwidth=3.24;
          this.rxris=100.0;
+         this.mbeam=16;
          break;
       case 41: /* Hokkaido West (hkw) */
          this.gdlat=+43.54;
@@ -209,6 +235,7 @@ class RadarPos {
          this.boresite=-30.0;
          this.bmwidth=3.24;
          this.rxris=100.0;
+         this.mbeam=16;
          break;
       case 64: /* Inuvik (inv) */
          this.gdlat=+68.414;
@@ -216,6 +243,7 @@ class RadarPos {
          this.boresite=29.5;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=16;
          break;
       case 65: /* Rankin Inlet (rkn) */
          this.gdlat=+62.828;
@@ -223,6 +251,7 @@ class RadarPos {
          this.boresite=5.7;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=16;
          break;
       case 66: /* Clyde River (cly) */
          this.gdlat=+70.487;
@@ -230,6 +259,7 @@ class RadarPos {
          this.boresite=-55.62;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=16;
          break;
       case 90: /* Longyearbyen (lyr) */
          this.gdlat=+78.153;
@@ -237,6 +267,7 @@ class RadarPos {
          this.boresite=23.7;
          this.bmwidth=3.24;
          this.rxris=100.0;
+         this.mbeam=16;
          break;
       case 96: /* Dome C East (dce) */
          this.gdlat=-75.09;
@@ -244,6 +275,7 @@ class RadarPos {
          this.boresite=115.0;
          this.bmwidth=-3.24;
          this.rxris=100.0;
+         this.mbeam=16;
          break;
       case 204: /* Fort Hays West (fhw) */
          this.gdlat=+38.859;
@@ -251,6 +283,7 @@ class RadarPos {
          this.boresite=-25.0;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=22;
          break;
       case 205: /* Fort Hays East (fhe) */
          this.gdlat=+38.859;
@@ -258,6 +291,7 @@ class RadarPos {
          this.boresite=45.0;
          this.bmwidth=3.24;
          this.rxris=100.0;
+         this.mbeam=22;
          break;
       case 206: /* Christmas Valley West (cvw) */
          this.gdlat=+43.271;
@@ -265,6 +299,7 @@ class RadarPos {
          this.boresite=-20.0;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=24;
          break;
       case 207: /* Christmas Valley East (cve) */
          this.gdlat=+43.271;
@@ -272,6 +307,7 @@ class RadarPos {
          this.boresite=54.0;
          this.bmwidth=3.24;
          this.rxris=100.0;
+         this.mbeam=24;
          break;
       case 208: /* Adak West (adw) */
          this.gdlat=+51.89;
@@ -279,6 +315,7 @@ class RadarPos {
          this.boresite=-28.0;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=22;
          break;
       case 209: /* Adak East (ade) */
          this.gdlat=+51.89;
@@ -286,6 +323,7 @@ class RadarPos {
          this.boresite=46.0;
          this.bmwidth=3.24;
          this.rxris=0.0;
+         this.mbeam=22;
          break;
       default:
          this.gdlat=+53.32;

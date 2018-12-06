@@ -36,7 +36,6 @@ public class TimeCanvas extends BaseCanvas implements AdjustmentListener,
   private boolean gflg=true;
   private int bxcar=0;
   private int prm=0;
-  private int mbeam=0;
 
   private double prng=30.0;
   private double vrng=1000.0;
@@ -100,8 +99,7 @@ public class TimeCanvas extends BaseCanvas implements AdjustmentListener,
     imgNse=createImage(time.MAXFRAME,1);
   }
 
-  public TimeCanvas(int bmnum,int mbeam,int nrang,HotBox hotbox) { 
-    this.mbeam=mbeam;
+  public TimeCanvas(int bmnum,int nrang,HotBox hotbox) { 
     this.NRANG=nrang;
     this.ERANG=180+this.NRANG*45;
     this.hotbox=hotbox;
@@ -466,7 +464,7 @@ private void drawGrid(Graphics g) {
       if (rng<10.0) rng=10.0;
       if (rng>5000.0) rng=5000.0;
       vrng=rng;
-      for (i=0;i<mbeam;i++) this.remapBeam(i);
+      for (i=0;i<time.rpos.mbeam;i++) this.remapBeam(i);
       remap();
       replot();
       repaint();    
@@ -474,14 +472,14 @@ private void drawGrid(Graphics g) {
       if (rng<1.0) rng=1.0;
       if (rng>100.0) rng=100.0;
       prng=rng;
-      for (i=0;i<mbeam;i++) this.remapBeam(i);
+      for (i=0;i<time.rpos.mbeam;i++) this.remapBeam(i);
       remap();
       replot();
       repaint();
     } else if (prm==2) {
       if (rng<1.0) rng=1.0;
       if (rng>5000.0) rng=5000.0;
-      for (i=0;i<mbeam;i++) this.remapBeam(i);
+      for (i=0;i<time.rpos.mbeam;i++) this.remapBeam(i);
       wrng=rng;
       remap();
       replot();
@@ -489,7 +487,7 @@ private void drawGrid(Graphics g) {
     } else {
       if (rng<1.0) rng=1.0;
       if (rng>90.0) rng=90.0;
-      for (i=0;i<mbeam;i++) this.remapBeam(i);
+      for (i=0;i<time.rpos.mbeam;i++) this.remapBeam(i);
       erng=rng;
       remap();
       replot();
@@ -543,7 +541,7 @@ private void drawGrid(Graphics g) {
 
       MapPoint geo=GeoMap.geo(0,time.rpos,
 			 time.frang[xt],time.rsep[xt],time.rxrise[xt],
-                         300,mbeam,time.bmnum,rng);
+                         300,time.bmnum,rng);
       if (geo !=null) System.err.println("lat="+geo.lat+", lon="+geo.lon);
 
       if (time.dflg[xt][rng]==0) {

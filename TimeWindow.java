@@ -32,7 +32,7 @@ public class TimeWindow extends CloseFrame implements Runnable,ActionListener {
  
  
   public TimeWindow(String name,RadarData data,HotBox hotbox,int bmnum,
-                    int mbeam,int nrang) {
+                    int nrang) {
 
    
     this.data=data;
@@ -52,7 +52,7 @@ public class TimeWindow extends CloseFrame implements Runnable,ActionListener {
     bmstr.setText(""+bmnum);
 
     colorbar=new ColorBar(16,256);
-    time=new TimeCanvas(bmnum,mbeam,nrang,hotbox);    
+    time=new TimeCanvas(bmnum,nrang,hotbox);    
     tool=new TimeTool(name,time,colorbar);
 
     Panel t=new Panel();
