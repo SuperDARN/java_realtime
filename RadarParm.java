@@ -145,7 +145,7 @@ public class RadarParm {
 
        if ((scl.name.equals("origin.command")) && 
            (scl.type==DataMap.DATASTRING)) {
-	   origin.time=new String((String) scl.value);
+	   origin.command=new String((String) scl.value);
             System.err.println(scl.name+" = "+origin.command); 
 	   flag=true;
        }
