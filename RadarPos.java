@@ -237,6 +237,14 @@ class RadarPos {
          this.rxris=100.0;
          this.mbeam=16;
          break;
+      case 50: /* Jiamusi East (jme) */
+         this.gdlat=+46.816;
+         this.gdlon=130.402;
+         this.boresite=44.0;
+         this.bmwidth=3.25;
+         this.rxris=0.0;
+         this.mbeam=24;
+         break;
       case 64: /* Inuvik (inv) */
          this.gdlat=+68.414;
          this.gdlon=-133.772;
