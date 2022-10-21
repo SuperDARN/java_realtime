@@ -285,6 +285,14 @@ class RadarPos {
          this.rxris=100.0;
          this.mbeam=16;
          break;
+      case 97: /* Dome C North (dcn) */
+         this.gdlat=-75.086;
+         this.gdlon=123.3597;
+         this.boresite=-28.0;
+         this.bmwidth=-3.24;
+         this.rxris=100.0;
+         this.mbeam=16;
+         break;
       case 204: /* Fort Hays West (fhw) */
          this.gdlat=+38.859;
          this.gdlon=-99.389;

@@ -50,6 +50,10 @@ public class StationID {
         "Hokkaido West",
         "Unknown"};
 
+    static String stationchina[]={
+        "Jiamusi East",
+        "Unknown"};
+
    static String stationpolar[]={
         "Inuvik",
         "Rankin Inlet",
@@ -64,6 +68,7 @@ public class StationID {
         "Unused",
         "Unused",
         "Dome C East",
+        "Dome C North",
         "Unknown"};
 
    static String stationmsi[]={
@@ -86,9 +91,13 @@ public class StationID {
         if ((id-32)>stationmid.length-1) return stationmid[station.length-1];
         return stationmid[id-32];
       }
-      if ((id>=40) && (id<64)) {
+      if ((id>=40) && (id<50)) {
         if ((id-40)>stationjapan.length-1) return stationjapan[station.length-1];
         return stationjapan[id-40];
+      }
+      if ((id>=50) && (id<64)) {
+        if ((id-50)>stationchina.length-1) return stationchina[station.length-1];
+        return stationchina[id-50];
       }
       if ((id>=64) && (id<90)) {
         if ((id-64)>stationpolar.length-1) return stationpolar[station.length-1];
