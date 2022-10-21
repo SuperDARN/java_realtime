@@ -75,6 +75,7 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
     for (i=0;i<k;i++) {
       System.err.println("Radar Hosts="+host[i]);
     }
+    maxhost=k;
     i=k=j=0;
 
     do {
@@ -90,23 +91,30 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
       System.err.println("Radar Names="+name[i]);
     }
     i=k=j=0;
+
     String prtstr;
     do {
-	i=ports.indexOf(",",i);
-	if (i !=-1) prtstr=ports.substring(j,i);
-	else prtstr=ports.substring(j);
-	try {
-	    port[k]=(Integer.valueOf(prtstr.trim()));
-	} catch (NumberFormatException ex) {
-	    port[k]=1024;
-	}
-	k++;
-	i++;
-	j=i;
+      i=ports.indexOf(",",i);
+      if (i !=-1) prtstr=ports.substring(j,i);
+      else prtstr=ports.substring(j);
+      try {
+          port[k]=(Integer.valueOf(prtstr.trim()));
+      } catch (NumberFormatException ex) {
+          port[k]=1024;
+      }
+      k++;
+      i++;
+      j=i;
     } while (i !=0);
 
     for (i=0;i<k;i++) {
-	System.err.println("Port Numbers="+port[i]);
+      System.err.println("Port Numbers="+port[i]);
+    }
+
+    if (maxhost < k) maxhost=k;
+    for (i=0;i<maxhost;i++) {
+      if (host[i]==null) host[i]=new String(host[0]);
+      if (name[i]==null) name[i]=new String("Unknown ("+i+")");
     }
 
     i=k=j=0;
@@ -146,51 +154,47 @@ public class FitACFWindow extends CloseFrame implements ActionListener {
     for (i=0;i<k;i++) {
       System.err.println("Channels="+channel[i]);
     }
-
-    maxhost=k;
-    for (i=0;i<maxhost;i++) 
-      if (name[i]==null) name[i]=new String("Unknown ("+i+")");
     
 
     i=k=j=0;
     String bmstr;
     do {
-	i=beams.indexOf(",",i);
-	if (i !=-1) bmstr=beams.substring(j,i);
-	else bmstr=beams.substring(j);
-	try {
-	    beam[k]=(Integer.valueOf(bmstr.trim()));
-	} catch (NumberFormatException ex) {
-	    beam[k]=8;
-	}
-	k++;
-	i++;
-	j=i;
+      i=beams.indexOf(",",i);
+      if (i !=-1) bmstr=beams.substring(j,i);
+      else bmstr=beams.substring(j);
+      try {
+          beam[k]=(Integer.valueOf(bmstr.trim()));
+      } catch (NumberFormatException ex) {
+          beam[k]=8;
+      }
+      k++;
+      i++;
+      j=i;
     } while (i !=0);
 
     for (i=0;i<k;i++) {
-	System.err.println("Summary Beam="+beam[i]);
+      System.err.println("Summary Beam="+beam[i]);
     }
 
 
     i=k=j=0;
     String nrstr;
     do {
-	i=nrangs.indexOf(",",i);
-	if (i !=-1) nrstr=nrangs.substring(j,i);
-	else nrstr=nrangs.substring(j);
-	try {
-	    nrang[k]=(Integer.valueOf(nrstr.trim()));
-	} catch (NumberFormatException ex) {
-	    nrang[k]=75;
-	}
-	k++;
-	i++;
-	j=i;
+      i=nrangs.indexOf(",",i);
+      if (i !=-1) nrstr=nrangs.substring(j,i);
+      else nrstr=nrangs.substring(j);
+      try {
+          nrang[k]=(Integer.valueOf(nrstr.trim()));
+      } catch (NumberFormatException ex) {
+          nrang[k]=75;
+      }
+      k++;
+      i++;
+      j=i;
     } while (i !=0);
 
     for (i=0;i<k;i++) {
-	System.err.println("Number of Ranges="+nrang[i]);
+      System.err.println("Number of Ranges="+nrang[i]);
     }
 
 
