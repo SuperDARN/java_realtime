@@ -306,7 +306,7 @@ class RadarPos {
          this.gdlon=-99.389;
          this.boresite=45.0;
          this.bmwidth=3.24;
-         this.rxris=100.0;
+         this.rxris=0.0;
          this.mbeam=22;
          break;
       case 206: /* Christmas Valley West (cvw) */
@@ -322,7 +322,7 @@ class RadarPos {
          this.gdlon=-120.358;
          this.boresite=54.0;
          this.bmwidth=3.24;
-         this.rxris=100.0;
+         this.rxris=0.0;
          this.mbeam=24;
          break;
       case 208: /* Adak West (adw) */
