@@ -341,6 +341,22 @@ class RadarPos {
          this.rxris=0.0;
          this.mbeam=22;
          break;
+      case 210: /* Iceland West (icw) */
+         this.gdlat=+63.7739;
+         this.gdlon=-20.5461;
+         this.boresite=-52.0;
+         this.bmwidth=3.24;
+         this.rxris=0.0;
+         this.mbeam=24;
+         break;
+      case 211: /* Iceland East (ice) */
+         this.gdlat=+63.7744;
+         this.gdlon=-20.5418;
+         this.boresite=23.0;
+         this.bmwidth=3.24;
+         this.rxris=0.0;
+         this.mbeam=24;
+         break;
       default:
          this.gdlat=+53.32;
          this.gdlon=-60.46;

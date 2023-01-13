@@ -78,6 +78,8 @@ public class StationID {
         "Christmas Valley East",
         "Adak West",
         "Adak East",
+        "Iceland West",
+        "Iceland East",
         "Unknown"};
 
 
